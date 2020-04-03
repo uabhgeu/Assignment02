@@ -9,6 +9,11 @@ public class ScientificCalculator extends BasicCalculator implements AdvancedOpe
 	public double raisedToThePowerOf(double base, double exponent) {
 		return Math.pow(base, exponent);
 	}
+
+	@Override
+	public double squareRoot(double number) {
+		return Math.sqrt(number);
+	}
 	
 	
 
