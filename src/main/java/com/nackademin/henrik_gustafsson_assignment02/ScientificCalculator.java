@@ -14,6 +14,16 @@ public class ScientificCalculator extends BasicCalculator implements AdvancedOpe
 	public double squareRoot(double number) {
 		return Math.sqrt(number);
 	}
+
+	@Override
+	public double max(double number1, double number2) {
+		return Math.max(number1, number2);
+	}
+
+	@Override
+	public double min(double number1, double number2) {
+		return Math.min(number1, number2);
+	}
 	
 	
 

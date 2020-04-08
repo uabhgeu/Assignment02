@@ -16,6 +16,8 @@ public class BasicCalculator implements BasicOperations {
 	}
 	@Override
 	public double division(double firstNumber, double secondNumber) {
+		if (secondNumber == 0.0)
+			throw new ArithmeticException("Cant divide by zero");
 		return firstNumber / secondNumber;
 	}
 }
