@@ -8,7 +8,6 @@ public class Main {
 		System.out.println(bc.subtraction(2, 12));
 		System.out.println(bc.division(2, 1));
 
-
 		ScientificCalculator sc = new ScientificCalculator();
 		System.out.println(sc.square(4));
 		System.out.println(sc.raisedToThePowerOf(6, 2));

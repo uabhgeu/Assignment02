@@ -24,7 +24,5 @@ public class ScientificCalculator extends BasicCalculator implements AdvancedOpe
 	public double min(double number1, double number2) {
 		return Math.min(number1, number2);
 	}
-	
-	
 
 }
