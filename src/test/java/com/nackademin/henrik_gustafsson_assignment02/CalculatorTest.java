@@ -172,13 +172,17 @@ public class CalculatorTest {
 		}
 	}
 
-	@Test(expected = java.lang.AssertionError.class)
+	@Test
 	public void testDivideByZeroShouldBeInfinity() {
 		double tempFirstNumber = 2.0;
 		double tempSecondNumber = 0.0;
-		LOG.info("Testing method division, dividing by zero");
-		basiccalculator.division(tempFirstNumber, tempSecondNumber);
+		double tempExpectedResult = Double.POSITIVE_INFINITY;
+
+		assertEquals(basiccalculator.division(tempFirstNumber, tempSecondNumber), tempExpectedResult, 0);
+		LOG.info("Testing method division with Zero: " + tempFirstNumber + " / "
+				+ tempSecondNumber + " = " + tempExpectedResult);
 	}
+	
 
 	@Test
 	public void testMultiplicationRandomPositive() {
@@ -322,32 +326,55 @@ public class CalculatorTest {
 
 	@Test
 	public void testSquareRootRandomPositive() {
-		double tempNumber = 1056.25;
-		double tempExpectedResult = 32.5;
+		double tempNumber = 0.0;
+		double temp;
 
-//		for (int i = 0; i < 5; i++) {
-//			double min = 0.0;
-//			double max = 100.0;
-//
-//			Random r = new Random();
-//			tempNumber = min + (max - min) * r.nextDouble();
-//			tempExpectedResult = Math.sqrt(tempNumber);
+		for (int i = 0; i < 5; i++) {
+			double min = 0.0;
+			double max = 1000.0;
+			Random r = new Random();
+			tempNumber = min + (max - min) * r.nextDouble();
+			double tempExpectedResult = tempNumber / 2;
 
-			assertEquals(scientificCalculator.squareRoot(tempNumber), tempExpectedResult, 0);
+			do {
+				temp = tempExpectedResult;
+				tempExpectedResult = (temp + (tempNumber / temp)) / 2;
+			} while ((temp - tempExpectedResult) != 0);
+
+			assertEquals(scientificCalculator.squareRoot(tempNumber), tempExpectedResult, 0.001);
 			LOG.info("Testing method squareRoot: " + tempNumber + " squareRoot = " + tempExpectedResult);
 		}
-	//}
+	}
+	
+
 
 	@Test
-	public void testSquareRootNegativeNumbers() {
+	public void testSquareRootRandomNegativeNumbers() {
 		double tempNumber = -10.0;
+		double tempExpectedResult = Double.NaN;
+
+		for (int i = 0; i < 5; i++) {
+			double min = -100.0;
+			double max = 0.0;
+			Random r = new Random();
+			tempNumber = min + (max - min) * r.nextDouble();
+
+			assertEquals(scientificCalculator.squareRoot(tempNumber), Double.NaN, 0);
+			LOG.info("Testing method squareRoot with negative numbers: " + tempNumber + " squareRoot = "
+					+ tempExpectedResult);
+		}
+	}
+	
+	@Test
+	public void testSquareRootWithZero() {
+		double tempNumber = 0.0;
 		double tempExpectedResult = 0.0;
 
-		tempExpectedResult = Math.sqrt(tempNumber);
-		assertEquals(scientificCalculator.squareRoot(tempNumber), tempExpectedResult, 0);
-		LOG.info("Testing methods squareRoot with negative numbers: " + tempNumber + " squareRoot = "
-				+ tempExpectedResult);
-	}
+			assertEquals(scientificCalculator.squareRoot(tempNumber), tempExpectedResult, 0);
+			LOG.info("Testing method squareRoot with Zero: " + tempNumber + " squareRoot = "
+					+ tempExpectedResult);
+		}
+	
 
 	@Test
 	public void testMaxRandomPositiveAndNegativeNumbers() {
@@ -369,7 +396,7 @@ public class CalculatorTest {
 			}
 
 			assertEquals(scientificCalculator.max(tempFirstNumber, tempSecondNumber), tempExpectedResult, 0);
-			LOG.info("Testing methods max: " + tempFirstNumber + " or " + tempSecondNumber + " max = "
+			LOG.info("Testing method max: " + tempFirstNumber + " or " + tempSecondNumber + " max = "
 					+ tempExpectedResult);
 		}
 	}
@@ -380,7 +407,6 @@ public class CalculatorTest {
 		double tempSecondNumber = 0.0;
 		double tempExpectedResult = 0.0;
 
-		tempExpectedResult = Math.max(tempFirstNumber, tempSecondNumber);
 		assertEquals(scientificCalculator.max(tempFirstNumber, tempSecondNumber), tempExpectedResult, 0);
 		LOG.info("Testing method max with Zero: " + tempFirstNumber + " or " + tempSecondNumber + " max = "
 				+ tempExpectedResult);
@@ -406,7 +432,7 @@ public class CalculatorTest {
 			}
 
 			assertEquals(scientificCalculator.min(tempFirstNumber, tempSecondNumber), tempExpectedResult, 0);
-			LOG.info("Testing methods min: " + tempFirstNumber + " or " + tempSecondNumber + " min = "
+			LOG.info("Testing method min: " + tempFirstNumber + " or " + tempSecondNumber + " min = "
 					+ tempExpectedResult);
 		}
 	}
