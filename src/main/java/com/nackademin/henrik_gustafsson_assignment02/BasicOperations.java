@@ -1,3 +1,7 @@
+/* Interface BasicOperations
+ * Contains addition, subtraction, multiplication and division
+ */
+
 package com.nackademin.henrik_gustafsson_assignment02;
 
 public interface BasicOperations {

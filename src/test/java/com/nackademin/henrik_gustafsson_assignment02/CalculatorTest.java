@@ -1,3 +1,9 @@
+/*
+ * Test cases covering 100% of the code (except Main)
+ * The tests are implemented using random where possible
+ * Tests exercise all methods in both calculators using positive, negative numbers and Zero (0)
+ */
+
 package com.nackademin.henrik_gustafsson_assignment02;
 
 import static org.junit.Assert.*;
@@ -13,6 +19,7 @@ public class CalculatorTest {
 	Random random = new Random();
 	public static final Logger LOG = Logger.getLogger(CalculatorTest.class.getName());
 
+	// Test addition in BasicCalculator using random positive numbers (double) between 0-100.
 	@Test
 	public void testAdditionPositiveRandom() {
 		double tempFirstNumber = 0.0;
@@ -32,6 +39,7 @@ public class CalculatorTest {
 		}
 	}
 
+	// Test addition in BasicCalculator using random negative numbers (double) between -100-0.
 	@Test
 	public void testAdditionNegativeRandom() {
 		double tempFirstNumber = 0.0;
@@ -52,6 +60,7 @@ public class CalculatorTest {
 		}
 	}
 
+	// Test addition with zero in BasicCalculator using random positive numbers (double) between 0-100.
 	@Test
 	public void testAdditionWithZero() {
 		double tempFirstNumber = 0.0;
@@ -71,6 +80,7 @@ public class CalculatorTest {
 		}
 	}
 
+	// Test subtraction in BasicCalculator using random positive numbers (double) between 0-100.
 	@Test
 	public void testSubtractionRandomPositive() {
 		double tempFirstNumber = 0.0;
@@ -91,7 +101,8 @@ public class CalculatorTest {
 		}
 
 	}
-
+	
+	// Test subtraction in BasicCalculator using random negative numbers (double) between -100-0.
 	@Test
 	public void testSubtractionRandomNegative() {
 		double tempFirstNumber = 0.0;
@@ -113,6 +124,7 @@ public class CalculatorTest {
 
 	}
 
+	// Test subtraction with zero in BasicCalculator using random positive numbers (double) between 0-100.
 	@Test
 	public void testRandomSubtractionWithZero() {
 		double tempFirstNumber = 2.0;
@@ -132,6 +144,7 @@ public class CalculatorTest {
 		}
 	}
 
+	// Test division in BasicCalculator using random positive numbers (double) between 0-100.
 	@Test
 	public void testDivisionRandomPositive() {
 		double tempFirstNumber = 0.0;
@@ -152,6 +165,7 @@ public class CalculatorTest {
 		}
 	}
 
+	// Test division in BasicCalculator using random negative numbers (double) between -100-0.
 	@Test
 	public void testDivisionRandomNegative() {
 		double tempFirstNumber = 2.0;
@@ -172,6 +186,7 @@ public class CalculatorTest {
 		}
 	}
 
+	// Test division by zero in BasicCalculator. Expected result shall be Infinity
 	@Test
 	public void testDivideByZeroShouldBeInfinity() {
 		double tempFirstNumber = 2.0;
@@ -183,7 +198,7 @@ public class CalculatorTest {
 				+ tempSecondNumber + " = " + tempExpectedResult);
 	}
 	
-
+	// Test multiplication in BasicCalculator using random positive numbers (double) between 0-100.
 	@Test
 	public void testMultiplicationRandomPositive() {
 		double tempFirstNumber = 0.0;
@@ -205,6 +220,7 @@ public class CalculatorTest {
 		}
 	}
 
+	// Test multiplication in BasicCalculator using random negative numbers (double) between -100-0.
 	@Test
 	public void testMultiplicationRandomNegativeNumbers() {
 		double tempFirstNumber = -2.0;
@@ -226,6 +242,7 @@ public class CalculatorTest {
 		}
 	}
 
+	// Test multiplication with zero in BasicCalculator using random positive numbers (double) between 0-100.
 	@Test
 	public void testRandomMultiplicationWithZero() {
 		double tempFirstNumber = 0.0;
@@ -245,6 +262,7 @@ public class CalculatorTest {
 		}
 	}
 
+	// Test Raised to the power of positive numbers in ScientificCalculator.
 	@Test
 	public void testRaisedToThePowerOfPositive() {
 		double tempNumber = 5.0;
@@ -256,6 +274,7 @@ public class CalculatorTest {
 					+ " = " + tempExpectedResult);
 		}
 
+	// Test Raised to the power of negative number in ScientificCalculator.
 	@Test
 	public void testRaisedToThePowerOfNegative() {
 		double tempNumber = 10.0;
@@ -267,6 +286,7 @@ public class CalculatorTest {
 					+ tempExpectedResult);
 		}
 
+	// Test Raised to the power of zero in ScientificCalculator.
 	@Test
 	public void testRaisedToThePowerOfZero() {
 		double tempNumber = 10.0;
@@ -278,6 +298,7 @@ public class CalculatorTest {
 					+ tempExpectedResult);
 		}
 
+	// Test Square in ScientificCalculator using random positive numbers between 0-100.
 	@Test
 	public void testSquareRandomPositive() {
 		double tempNumber = 0.0;
@@ -296,6 +317,7 @@ public class CalculatorTest {
 		}
 	}
 
+	// Test Square in ScientificCalculator using random negative numbers between -100-0.
 	@Test
 	public void testSquareRandomNegativeNumbers() {
 		double tempNumber = 0.0;
@@ -314,6 +336,7 @@ public class CalculatorTest {
 		}
 	}
 
+	// Test Square with zero in ScientificCalculator using random positive numbers between 0-1000.
 	@Test
 	public void testSquareWithZero() {
 		double tempNumber = 0.0;
@@ -324,6 +347,7 @@ public class CalculatorTest {
 		LOG.info("Testing method square with Zero: " + tempNumber + " square = " + tempExpectedResult);
 	}
 
+	// Test Square root in ScientificCalculator using random positive numbers between 0-1000.
 	@Test
 	public void testSquareRootRandomPositive() {
 		double tempNumber = 0.0;
@@ -347,7 +371,8 @@ public class CalculatorTest {
 	}
 	
 
-
+	// Test Square root in ScientificCalculator using random negative numbers between -100-0.
+	// Expected result = NaN
 	@Test
 	public void testSquareRootRandomNegativeNumbers() {
 		double tempNumber = -10.0;
@@ -365,6 +390,7 @@ public class CalculatorTest {
 		}
 	}
 	
+	// Test Square root with zero in ScientificCalculator.
 	@Test
 	public void testSquareRootWithZero() {
 		double tempNumber = 0.0;
@@ -375,7 +401,7 @@ public class CalculatorTest {
 					+ tempExpectedResult);
 		}
 	
-
+	// Test Max in ScientificCalculator using random positive AND negative numbers between -1000-1000.
 	@Test
 	public void testMaxRandomPositiveAndNegativeNumbers() {
 		double tempFirstNumber = 0.0;
@@ -401,6 +427,7 @@ public class CalculatorTest {
 		}
 	}
 
+	// Test Max with zero in ScientificCalculator.
 	@Test
 	public void testMaxWithZero() {
 		double tempFirstNumber = 0.0;
@@ -412,6 +439,7 @@ public class CalculatorTest {
 				+ tempExpectedResult);
 	}
 
+	// Test Min in ScientificCalculator using random positive AND negative numbers between -1000-1000.
 	@Test
 	public void testMinRandomPositiveAndNegativeNumbers() {
 		double tempFirstNumber = 0.0;
@@ -437,6 +465,7 @@ public class CalculatorTest {
 		}
 	}
 
+	// Test Min with zero in ScientificCalculator.
 	@Test
 	public void testMinWithZero() {
 		double tempFirstNumber = 0.0;

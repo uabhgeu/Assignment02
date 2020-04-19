@@ -1,3 +1,9 @@
+/* Class ScientificCalculator implementing the interface AdvancedOperations
+ * Inherits BasicCalculator.
+ * Contains Square, Raised to the power of, Square root
+ * Max and Min
+ */
+
 package com.nackademin.henrik_gustafsson_assignment02;
 
 public class ScientificCalculator extends BasicCalculator implements AdvancedOperations {

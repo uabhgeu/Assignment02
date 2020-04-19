@@ -1,3 +1,6 @@
+/* Class BasicCalculator implementing the interface BasicOperations
+ * Contains addition, subtraction, multiplication and division
+ */
 package com.nackademin.henrik_gustafsson_assignment02;
 
 public class BasicCalculator implements BasicOperations {

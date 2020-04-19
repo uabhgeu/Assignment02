@@ -1,3 +1,7 @@
+/* Interface AdvancedOperations containing:
+ * Square, Raised to the power of, Square root, Max and Min
+ */
+
 package com.nackademin.henrik_gustafsson_assignment02;
 
 public interface AdvancedOperations {

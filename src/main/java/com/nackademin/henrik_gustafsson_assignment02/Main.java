@@ -1,3 +1,7 @@
+/*
+ * Main method for the project
+ */
+
 package com.nackademin.henrik_gustafsson_assignment02;
 
 public class Main {
